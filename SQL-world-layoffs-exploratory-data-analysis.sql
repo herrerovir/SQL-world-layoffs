@@ -12,20 +12,19 @@ FROM layoffs_staging2;
 SELECT MAX(percentage_laid_off)
 FROM layoffs_staging2;
 
--- Show companies that laid off everyone
-SELECT *
+-- Show amount of companies that laid off everyone
+SELECT COUNT(percentage_laid_off)
 FROM layoffs_staging2
-WHERE percentage_laid_off = 1
-ORDER BY total_laid_off DESC;
+WHERE percentage_laid_off = 1;
 
 -- Show companies which laid off everyone by number of people fired
-SELECT *
+SELECT company, total_laid_off
 FROM layoffs_staging2
 WHERE percentage_laid_off = 1
 ORDER BY total_laid_off DESC;
 
 -- Show companies that closed down by funds raised
-SELECT *
+SELECT company, funds_raised_millions
 FROM layoffs_staging2
 WHERE percentage_laid_off = 1
 ORDER BY funds_raised_millions DESC;
@@ -62,7 +61,7 @@ ORDER BY 1 DESC;
 SELECT stage, SUM(total_laid_off)
 FROM layoffs_staging2
 GROUP BY stage
-ORDER BY 1 DESC;
+ORDER BY 2 DESC;
 
 -- Rolling total layoffs
 SELECT SUBSTRING(`date`, 1 , 7) AS `MONTH`, SUM(total_laid_off)
@@ -83,7 +82,7 @@ SELECT `MONTH`, total_off
 , SUM(total_off) OVER (ORDER BY `MONTH`) AS rolling_total
 FROM Rolling_Total;
 
--- Top 5 companieslayoffs_staging2 that laidoff most people per year
+-- Top 5 companies that laidoff most people per year
 SELECT company, YEAR(`date`), SUM(total_laid_off)
 FROM layoffs_staging2
 GROUP BY company, YEAR(`date`)
