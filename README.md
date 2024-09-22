@@ -1,4 +1,4 @@
-# 📉 Wordwide layoffs: data cleaning and exploratory analysis
+# 📉 Worldwide layoffs: data cleaning and exploratory analysis
 
 This repository contains a data cleaning and exploratory data analysis project on worldwide layoffs using SQL. 
 
