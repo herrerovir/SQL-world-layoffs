@@ -251,3 +251,9 @@ Here is shown the top 5 companies that layoff more people per year.
 | Amazon      | 2023  | 8000           | 4       |
 | Salesforce  | 2023  | 8000           | 4       |
 | Dell        | 2023  | 6650           | 5       |
+
+
+
+
+- Kunal Khuswaha Devops Bootcame 
+
